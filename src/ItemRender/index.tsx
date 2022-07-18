@@ -1,12 +1,15 @@
-import {FC} from 'react'
+import { FC } from 'react'
 import './styles.css'
+import { getColor } from './helpers';
 
-const COLORS = ["#3E5641", "#A24936", "#D36135", "#282B28", "#83BCA9"];
 
-const getColor = (index: number) => COLORS[index % COLORS.length];
+export type Item = {
+  id: string;
+  name: string;
+}
 
 interface Props {
-    item: any;
+    item: Item;
     idx: number;
 }
 
