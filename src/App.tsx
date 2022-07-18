@@ -8,14 +8,9 @@ import { Item } from './ItemRender';
 
 const data = createData();
 
-const fullHeight = data.length * 100;
-
-
 function App() {
   return (
-    <div className="app-container" style={{ height: fullHeight }}>
       <Virtualized data={data} renderItem={(item: Item, idx: number) => <ItemRender item={item} idx={idx} />} />
-    </div>
   );
 }
 

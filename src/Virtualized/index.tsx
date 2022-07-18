@@ -12,6 +12,7 @@ interface Props<T extends {id: string | number}> {
 
 
 export const Virtualized = <T extends {id: string | number},>(props: PropsWithChildren<Props<T>>) => {
+    
     const {data, renderItem} = props;
     const modifiedItems: Collection<T> = useMemo(() => getCollectionFromData(data), [data]);
   
@@ -20,6 +21,8 @@ export const Virtualized = <T extends {id: string | number},>(props: PropsWithCh
     
     const refOfCollections = useRef([0,10,20]);
     const renderItemsRef = useRef(itemToRender);
+
+    const fullHeight = useMemo(() => data.length * 100, []);
 
     useEffect(() => {
         const setRenderItems = () => {
@@ -49,10 +52,10 @@ export const Virtualized = <T extends {id: string | number},>(props: PropsWithCh
     }, [window.pageYOffset])
 
     return (
-        <>
+        <div className="items-container" style={{ height: fullHeight }}>
             <div style={{ marginBottom: mockMarginBottom }} />
 
             {itemToRender.map((item: T, idx: number) => <Fragment key={item.id}>{renderItem(item, idx)}</Fragment>)}
-        </>
+        </div>
     );
 }

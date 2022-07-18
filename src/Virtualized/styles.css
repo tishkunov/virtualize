@@ -1,3 +1,10 @@
 body {
     overflow-anchor: none
 }
+
+.items-container {
+    text-align: center;
+    width: 525px;
+    margin: 0 auto;
+}
+  
