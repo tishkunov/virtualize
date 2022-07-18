@@ -17,4 +17,4 @@ export const findClosestIDsCollection = <T,>(goal: number, modifiedItems: T) => 
         return [0, 10, 20]
     }
     return [Number(closestItem) - 10, Number(closestItem), Number(closestItem) + 10]
- }
+}

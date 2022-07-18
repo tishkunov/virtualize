@@ -1,4 +1,3 @@
-import './App.css';
 import _isEqual from 'lodash/isEqual'
 import './stats';
 import { ItemRender } from './ItemRender';

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useMemo, useState, PropsWithChildren, Fragment } from 'react';
 import _isEqual from 'lodash/isEqual'
-import isEqual from 'lodash/isEqual';
+import _isEmpty from 'lodash/isEmpty';
 import { getCollectionFromData, findClosestIDsCollection, } from './helpers';
 import { Collection } from './types';
 import './styles.css'
@@ -33,7 +33,7 @@ export const Virtualized = <T extends {id: string | number},>(props: PropsWithCh
                 const [firstID,secondID, thirdID] = closestIDs;
                 const newItems = [...modifiedItems[firstID], ...modifiedItems[secondID], ...modifiedItems[thirdID]];
                 
-                if (!isEqual(newItems,renderItemsRef)) {
+                if (!_isEqual(newItems,renderItemsRef)) {
                     setItems(newItems)
                 }
             }
@@ -50,6 +50,15 @@ export const Virtualized = <T extends {id: string | number},>(props: PropsWithCh
         const [firstID, secondID] = refOfCollections.current;
         setMockMarginBottom( (firstID * 100 + secondID * 100 ) / 2 - 500)
     }, [window.pageYOffset])
+
+    if (_isEmpty(data)) {
+        console.error('Please provide prop "data" to Virtualized component');
+        return null;
+    }
+
+    if (typeof renderItem !== 'function') {
+        console.error('Please provide prop "renderItem" function to Virtualized component');
+    }
 
     return (
         <div className="items-container" style={{ height: fullHeight }}>
