@@ -1,0 +1,31 @@
+.item-wrapper {
+    width: 100%;
+    align-items: center;
+    height: 100px;
+    display: flex;
+    flex-direction: row; 
+    box-sizing: border-box;
+    border: 1px solid #eee;
+}
+
+.item-wrapper:hover {
+    background-color: rgba(235, 235, 235, 0.6);
+}
+
+.item-id {
+    width: 100px;
+    font-size: 30px;
+}
+
+.item-name {
+    width: 300px;
+    word-wrap: break-word;
+    padding: 0 10px;
+    text-align: left;
+    font-size: 20px;
+    color: #888;
+}
+
+.item-image {
+    border-radius: 30px
+}

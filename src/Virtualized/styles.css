@@ -1,0 +1,10 @@
+body {
+    overflow-anchor: none
+}
+
+.mockBlock {
+    height: 100px;
+    width: 100%;
+    overflow-anchor: none;
+}
+
