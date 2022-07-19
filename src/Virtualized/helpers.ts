@@ -1,5 +1,10 @@
+
+type CollectionStructure<T> = {
+    [key: string | number]: Array<T>
+}
+
 export const getCollectionFromData = <T>(data: T[]) => {
-    const result = {} as any;
+    const result: CollectionStructure<T> = {};
     for (let i = 0; i < data.length; i += 10) {
       result[String(i)] = data.slice(i, i + 10)
     }

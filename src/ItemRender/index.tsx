@@ -4,7 +4,7 @@ import { getColor } from './helpers';
 
 
 export type Item = {
-  id: string;
+  id: string | number;
   name: string;
 }
 

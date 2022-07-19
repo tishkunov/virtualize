@@ -1,6 +1,6 @@
 export const createData = () => {
     const LEN = 1000;
-    const arr = [] as any;
+    const arr = [];
     for (let i=0; i < LEN; i++) {
       arr.push({name: makeid(i > 90 ? 90 : i), id: i});
     }

@@ -12,7 +12,6 @@ interface Props<T extends {id: string | number}> {
 
 
 export const Virtualized = <T extends {id: string | number},>(props: PropsWithChildren<Props<T>>) => {
-    
     const {data, renderItem} = props;
     const modifiedItems: Collection<T> = useMemo(() => getCollectionFromData(data), [data]);
   
@@ -43,6 +42,10 @@ export const Virtualized = <T extends {id: string | number},>(props: PropsWithCh
 
         if (window.pageYOffset > 1000) { 
             setRenderItems();
+        }
+
+        return () => {
+            window.removeEventListener('scroll', setRenderItems, false);
         }
     }, [])
 
